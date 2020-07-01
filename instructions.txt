@@ -1,0 +1,8 @@
+
+1. Décompresser
+2. Charger les images dans docker
+docker load -i /chemin/vers/es_save.tar
+docker load -i /chemin/vers/front_save.tar
+3. Modifier la dernière ligne du docker-compose.yml, remplacer M:\dump\es_data par le chemin du dossier es_data
+4. Dans le dossier où se trouve docker-compose.yml, exécuter la commande: docker-compose -d up
+5. Site accessible à l'adresse localhost:5000
