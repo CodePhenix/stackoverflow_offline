@@ -84,7 +84,7 @@ StackExchange.scrollPadding.setPaddingTop(50, 10);    </script>
 
 
     
-        <a class="js-post-issue grid--cell s-btn s-btn__unset c-pointer py6 mx-auto" href="https://stackoverflow.com/posts/4922867/timeline" data-shortcut="T" title="Timeline"><svg aria-hidden="true" class="mln2 mr0 svg-icon iconHistory" width="19" height="18" viewBox="0 0 19 18"><path d="M3 9a8 8 0 113.73 6.77L8.2 14.3A6 6 0 105 9l3.01-.01-4 4-4-4h3L3 9zm7-4h1.01L11 9.36l3.22 2.1-.6.93L10 10V5z"></path></svg></a>
+
 
 </div>
 
@@ -173,17 +173,6 @@ StackExchange.scrollPadding.setPaddingTop(50, 10);    </script>
                                             <path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"></path>
                                         </svg>
                                     </div>
-
-
-                                    <a class="js-post-issue grid--cell s-btn s-btn__unset c-pointer py6 mx-auto"
-                                       href="https://stackoverflow.com/posts/4925847/timeline" data-shortcut="T"
-                                       title="Timeline">
-                                        <svg aria-hidden="true" class="mln2 mr0 svg-icon iconHistory" width="19"
-                                             height="18" viewBox="0 0 19 18">
-                                            <path d="M3 9a8 8 0 113.73 6.77L8.2 14.3A6 6 0 105 9l3.01-.01-4 4-4-4h3L3 9zm7-4h1.01L11 9.36l3.22 2.1-.6.93L10 10V5z"></path>
-                                        </svg>
-                                    </a>
-
                                 </div>
 
                             </div>
@@ -207,6 +196,34 @@ StackExchange.scrollPadding.setPaddingTop(50, 10);    </script>
                 </div>
             </div>
     </div>
+
+    <script>
+
+        let re = /https:\/\/stackoverflow.com\/questions\/(\d*)\//
+        let re2 = /http:\/\/stackoverflow.com\/questions\/(\d*)\//
+
+        f = function(x) {
+            if (re.exec(x.href)) {
+                return "\/question\/" + re.exec(x.href)[1]
+            }
+            if (re2.exec(x.href)) {
+                return "\/question\/" + re2.exec(x.href)[1]
+            }
+            return "#"
+        }
+
+        document.querySelectorAll("a").forEach(function(x) {
+            x.href = f(x)
+            if (x.href == "#") {
+                x.style.color = "black"
+            }
+        })
+
+
+
+
+    </script>
+
     <script>StackExchange.ready(function(){$.get('/posts/4922867/ivc/8aa8');});</script>
     <noscript>
         <div><img src="/posts/4922867/ivc/8aa8" class="dno" alt="" width="0" height="0"></div>
