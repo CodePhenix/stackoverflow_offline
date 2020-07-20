@@ -75,8 +75,9 @@ Welcome to StackOverflow dump search engine            </h1>
 
         <form id="bigsearch" class="mb24" action="" method="get">
             <div class="grid gsx gs8">
-                <input name="q" class="grid--cell fl1 s-input" type="text" maxlength="140" value="{{searched}}">
+                <input id="searchbar" name="q" class="grid--cell fl1 s-input" type="text" maxlength="140" value="{{searched}}">
                 <button class="grid--cell s-btn s-btn__primary">Search</button>
+                <button class="grid--cell" id="reset_btn">Reset</button>
             </div>
 
 
@@ -136,6 +137,12 @@ Welcome to StackOverflow dump search engine            </h1>
 </div>
 
     <script>
+
+        document.getElementById("reset_btn").addEventListener("click", function() {
+            document.getElementById("searchbar").value = "";
+            event.preventDefault();
+        })
+
         $(".js-search-results").on("mousedown touchstart", "div.result-link a", function (ev) {
             this.href = $(this).data("searchsession");
         });
